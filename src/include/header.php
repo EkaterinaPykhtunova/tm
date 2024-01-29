@@ -10,6 +10,12 @@
             padding:0;
             margin:0;
         }
+        a {
+            color: black;
+        }
+        table {
+            border-collapse: collapse;
+        }
         </style>
     </head>
     <body>
