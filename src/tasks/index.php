@@ -11,17 +11,20 @@
         <th width="200" nowrap="nowrap" align="left">NAME</th>
         <th width="100%" align="left">DESCRIPTION</th>
     </tr>
+    <?php
+
+        $result = $connection->query('SELECT `id`,`name`,`description` FROM `tm`.`tm_task`; ');
+        while($row = $result->fetch_object()) {
+    ?>
     <tr>
         <td align="center">01.</td>
-        <td align="left">FIRST</td>
-        <td align="left">FIRST TASK</td>
+        <td align="left"><?php echo $row->name; ?></td>
+        <td align="left"><?php echo $row->description; ?></td>
     </tr>
-    <tr>
-        <td align="center">02.</td>
-        <td align="left">SECOND</td>
-        <td align="left">SECOND TASK</td>
-    </tr>
-
+    <?php
+        }
+    
+    ?>
 </table>
 
 <?php include '../include/footer.php'; ?>
