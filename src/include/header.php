@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>MAIN | TASK MANAGER</title>
+        <title><?php echo TITLE; ?> | TASK MANAGER</title>
         <style>
         h1 {
             padding:0;
