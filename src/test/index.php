@@ -1,4 +1,5 @@
-
+<?php include '../config/settings.php'; ?>
+<?php include '../include/database.php'; ?>
 
 <h2>TEST PAGE</h2>
 

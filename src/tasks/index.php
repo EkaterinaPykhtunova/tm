@@ -5,26 +5,42 @@
                 
 <h2>TASKS</h2>
 
-<table width="100%" border="1" cellpadding="10">
+<table width="100%" border="1" cellpadding="10" style="margin-bottom: 20px;">
     <tr>
         <th width="40" nowrap="nowrap">№</th>
         <th width="200" nowrap="nowrap" align="left">NAME</th>
         <th width="100%" align="left">DESCRIPTION</th>
+        <th width="40" nowrap="nowrap"></th>
     </tr>
     <?php
-
+        $index = 1;
         $result = $connection->query('SELECT `id`,`name`,`description` FROM `tm`.`tm_task`; ');
         while($row = $result->fetch_object()) {
     ?>
     <tr>
-        <td align="center">01.</td>
+        <td align="center"><?php echo $index; ?>.</td>
         <td align="left"><?php echo $row->name; ?></td>
         <td align="left"><?php echo $row->description; ?></td>
+        <td align="center">
+            <form name="formDelete<?php echo $row->id; ?>" action="/task/delete/" method="POST" style="display:none;">
+                <input type="hidden" name="id" value="<?php echo $row->id; ?>"/>
+            </form>
+            <a href="#" onclick="document.forms['formDelete<?php echo $row->id; ?>'].submit();">
+                <img src="/images/trash_icon.png" width="32" />
+            </a>
+        </td>
     </tr>
     <?php
+        $index++;
         }
     
     ?>
 </table>
+
+<form action="/task/create/" method="POST">
+    <button type="submit">
+        CREATE TASK
+    </button>
+</form>
 
 <?php include '../include/footer.php'; ?>
