@@ -17,6 +17,22 @@
             border-collapse: collapse;
         }
         </style>
+
+        <script>
+            function showError(message) {
+                const errorBlock = document.getElementById('errorBlock');
+                errorBlock.innerHTML = message;
+                errorBlock.style.display = 'block';
+            }
+
+            function hideError() {
+                const errorBlock = document.getElementById('errorBlock');
+                errorBlock.style.display = 'none';
+            }
+
+        
+        </script>
+
     </head>
     <body>
 
@@ -51,3 +67,7 @@
     
         <tr>
             <td height="100%" valign="top" style="padding: 20px;">
+
+            <div id="errorBlock" style="display: none; background-color: lightpink; padding: 20px; font-size: 18 px; text-align: center; border: 1px solid black; " >
+                ERROR MESSAGE
+            </div>

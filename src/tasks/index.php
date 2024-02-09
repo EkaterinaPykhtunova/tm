@@ -30,7 +30,7 @@
             <form name="formDelete<?php echo $row->id; ?>" action="/task/delete/" method="POST" style="display:none;">
                 <input type="hidden" name="id" value="<?php echo $row->id; ?>"/>
             </form>
-            <a href="#" onclick="document.forms['formDelete<?php echo $row->id; ?>'].submit();">
+            <a href="#" onclick="if (confirm('Are you sure you want to delete task <?php echo $row->name ?> ?')) document.forms['formDelete<?php echo $row->id; ?>'].submit();">
                 <img src="/images/trash_icon.png" width="32" />
             </a>
         </td>

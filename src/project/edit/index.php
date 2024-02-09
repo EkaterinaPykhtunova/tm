@@ -22,28 +22,55 @@
 
  ?>
 
+ <script>
+
+    function submitMainForm() {
+        hideError();
+        const mainForm = document.getElementById('mainForm');
+        
+        const inputName = document.getElementById('inputName');
+        const valueName = inputName.value;
+
+        if (valueName === '') {
+            showError('Error! Name value is empty...');
+            return;
+        }
+        
+        const inputDescription = document.getElementById('inputDescription');
+        const valueDescription = inputDescription.value;
+
+        if (valueDescription === '') {
+            showError('Error! Description value is empty...');
+            return;
+        }
+
+        mainForm.submit();
+    }
+
+    </script>
+
 <h2>EDIT PROJECT</h2>
 
-<form action="/project/save/" method="POST">
+<form id="mainForm" action="/project/save/" method="POST">
 
 <input type="hidden" name="id" value="<?php echo $id; ?>" />
 
     <p>
         <div>NAME</div>
-        <div><input name="name" type="text" style="width: 300px;" value="<?php echo $name; ?>" /></div>
+        <div><input id="inputName" name="name" type="text" style="width: 300px;" value="<?php echo $name; ?>" /></div>
     </p>
 
     <p>
         <div>DESCRIPTION</div>
         <div>
-            <textarea name="description" style="width: 300px;"><?php echo $description; ?></textarea>
+            <textarea id="inputDescription" name="description" style="width: 300px;"><?php echo $description; ?></textarea>
         </div>
     </p>
 
     <p>
-        <button type="submit">
+        <button type="button" onclick="submitMainForm();" >
             SAVE
-        </button>   
+        </button>
     </p>
 
 </form>
