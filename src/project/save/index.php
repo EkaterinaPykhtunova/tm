@@ -12,8 +12,6 @@ $stmt = mysqli_prepare(
     "UPDATE `tm`.`tm_project` SET `name` = ?, `description` = ? WHERE `id` = ? "
 );
 
-var_dump($stmt);
-
 mysqli_stmt_bind_param($stmt, "sss", $name, $description, $id);
 mysqli_stmt_execute($stmt);
 
