@@ -37,13 +37,7 @@ $id = $_POST['id'];
 $name = $_POST['name'];
 $description = $_POST['description'];
 
-$stmt = mysqli_prepare(
-    $connection, 
-    "UPDATE `tm`.`tm_project` SET `name` = ?, `description` = ? WHERE `id` = ? "
-);
-
-mysqli_stmt_bind_param($stmt, "sss", $name, $description, $id);
-mysqli_stmt_execute($stmt);
+Application::getInstance()->getprojectService()->updateOneById($id, $name, $description);
 
 $result = new stdclass();
 $result->success = true;

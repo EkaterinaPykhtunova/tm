@@ -16,34 +16,17 @@ if ((!isset($_GET) || empty($_GET['id'])) ) {
 
 $id = $_GET['id'];
 
-$stmt = mysqli_prepare(
-    $connection, 
-    "SELECT `name`,`description` FROM `tm`.`tm_project` WHERE id = ?; "
-);
+$project = $projects = Application::getInstance()->getprojectService()->findOneById($id);
 
-    mysqli_stmt_bind_param($stmt, "s", $id);
-
-    $stmt->execute();
-    $stmt->store_result();
-
-    $stmt->bind_result($name, $description);
-    
-    $result = $stmt->fetch();
-    if ($result == null) {
+    if ($projects == null) {
         $result = new stdclass();
         $result->success = false;
-        $result->message = 'Error! Id is undefined...';
+        $result->message = 'Error! Project not found...';
     
         http_response_code(404);
         echo json_encode($result);
         die();  
     }
-
-
-    $project = new stdclass();
-    $project->id = $id;
-    $project->name = $name;
-    $project->description = $description;
 
     http_response_code(200);
     echo json_encode($project);

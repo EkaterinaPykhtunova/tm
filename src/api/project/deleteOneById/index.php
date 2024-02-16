@@ -15,9 +15,7 @@ if ((!isset($_POST) || empty($_POST['id'])) ) {
 
 $id = $_POST['id'];
 
-$stmt = mysqli_prepare($connection, "DELETE FROM `tm`.`tm_project` WHERE id = ? ");
-mysqli_stmt_bind_param($stmt, "s", $id);
-mysqli_stmt_execute($stmt);
+Application::getInstance()->getprojectService()->deleteOneById($id);
 
 $result = new stdclass();
 $result->success = true;
