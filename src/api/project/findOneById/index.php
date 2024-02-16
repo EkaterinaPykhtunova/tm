@@ -2,8 +2,7 @@
 
 include '../../../config/settings.php';
 include '../../../include/database.php';
-
-
+include '../../../app/include.php';
 
 if ((!isset($_GET) || empty($_GET['id'])) ) {
     $result = new stdclass();
@@ -16,9 +15,9 @@ if ((!isset($_GET) || empty($_GET['id'])) ) {
 
 $id = $_GET['id'];
 
-$project = $projects = Application::getInstance()->getprojectService()->findOneById($id);
+$project = Application::getInstance()->getprojectService()->findOneById($id);
 
-    if ($projects == null) {
+    if ($project == null) {
         $result = new stdclass();
         $result->success = false;
         $result->message = 'Error! Project not found...';

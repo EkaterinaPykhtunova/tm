@@ -20,7 +20,7 @@ class ProjectRepository {
 
     }
 
-    public function findOneById($id) {
+    public function findOneById($connection, $id) {
     
         $stmt = mysqli_prepare(
         $connection, 
@@ -36,6 +36,13 @@ class ProjectRepository {
         
         $result = $stmt->fetch();
         if ($result == null) return null;
+
+        $project = new Project();
+        $project->id = $id;
+        $project->name = $name;
+        $project->description = $description;
+
+        return $project;
 }
 
     public function createOneByDefault($connection) {
@@ -52,10 +59,10 @@ class ProjectRepository {
     }
 
     public function createOneByName($connection, $name) {
-
+        $description = '';
         $stmt = mysqli_prepare($connection, "INSERT INTO `tm`.`tm_project` (`name`,`description`) 
         VALUES (?,?); ");
-        mysqli_stmt_bind_param($stmt, "ss", $name, '');
+        mysqli_stmt_bind_param($stmt, "ss", $name, $description);
         mysqli_stmt_execute($stmt);
     }
 

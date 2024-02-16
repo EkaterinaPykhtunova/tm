@@ -2,6 +2,7 @@
 
 include '../../../config/settings.php';
 include '../../../include/database.php';
+include '../../../app/include.php';
 
 if ((!isset($_POST) || empty($_POST['id'])) ) {
     $result = new stdclass();
