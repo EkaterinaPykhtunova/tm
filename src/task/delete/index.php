@@ -2,11 +2,10 @@
 
 include '../../config/settings.php';
 include '../../include/database.php';
+include '../../app/include.php';
 
 $id = $_POST['id'];
 
-$stmt = mysqli_prepare($connection, "DELETE FROM `tm`.`tm_task` WHERE id = ? ");
-mysqli_stmt_bind_param($stmt, "s", $id);
-mysqli_stmt_execute($stmt);
+Application::getInstance()->gettaskService()->deleteOneById($id);
 
 header('location: /tasks/');

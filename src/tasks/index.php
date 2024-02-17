@@ -1,6 +1,7 @@
 <?php define('TITLE', 'TASKS'); ?>
 <?php include '../config/settings.php'; ?>
 <?php include '../include/database.php'; ?>
+<?php include '../app/include.php'; ?>
 <?php include '../include/header.php'; ?>
                 
 <h2>TASKS</h2>
@@ -13,10 +14,11 @@
         <th width="40" nowrap="nowrap"></th>
         <th width="40" nowrap="nowrap"></th>
     </tr>
+
     <?php
         $index = 1;
-        $result = $connection->query('SELECT `id`,`name`,`description` FROM `tm`.`tm_task`; ');
-        while($row = $result->fetch_object()) {
+        $tasks = Application::getInstance()->gettaskService()->findAll();
+        foreach ($tasks as $row)  {
     ?>
     <tr>
         <td align="center"><?php echo $index; ?>.</td>

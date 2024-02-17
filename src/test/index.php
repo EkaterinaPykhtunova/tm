@@ -6,7 +6,8 @@ TEST
 
 <?php
 
-    echo json_encode(Application::getInstance()->getprojectService()->findAll());
+    //echo json_encode(Application::getInstance()->gettaskService()->findAll());
 
 ?>
+
 

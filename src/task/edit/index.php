@@ -1,7 +1,15 @@
 <?php define('TITLE', 'EDIT TASK'); ?>
 <?php include '../../config/settings.php'; ?>
 <?php include '../../include/database.php'; ?>
+<?php include '../../app/include.php'; ?>
 <?php include '../../include/header.php'; ?>
+
+<?php
+
+ $id = $_GET['id'];
+ $task = Application::getInstance()->gettaskService()->findOneById($id);
+
+ ?>
 
 <script>
 
@@ -31,25 +39,6 @@ function submitMainForm() {
 </script>
 
 <h2>EDIT TASK</h2>
-
-<?php
-
- $id = $_GET['id'];
- 
- $stmt = mysqli_prepare(
-    $connection, 
-    "SELECT `name`,`description` FROM `tm`.`tm_task` WHERE id = ?; "
-);
-
-    mysqli_stmt_bind_param($stmt, "s", $id);
-
-    $stmt->execute();
-    $stmt->store_result();
-
-    $stmt->bind_result($name, $description);
-    $result = $stmt->fetch();
-
- ?>
 
 <form id="mainForm" action="/task/save/" method="POST">
 
