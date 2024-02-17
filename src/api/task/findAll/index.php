@@ -2,18 +2,9 @@
 
 include '../../../config/settings.php';
 include '../../../include/database.php';
+include '../../../app/include.php';
 
-$result = $connection->query('SELECT `id`,`name`,`description` FROM `tm`.`tm_task`; ');
-$projects = array();
-
-        while($row = $result->fetch_object()) {
-            $project = new stdclass();
-            $project->id = $row->id;
-            $project->name = $row->name;
-            $project->description = $row->description;
-
-            $projects[] = $project;
-        }
+$tasks = Application::getInstance()->gettaskService()->findAll();
 
 http_response_code(200);
-echo json_encode($projects);
+echo json_encode($tasks);

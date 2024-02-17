@@ -1,6 +1,7 @@
 <?php define('TITLE', 'PROJECTS'); ?>
 <?php include '../config/settings.php'; ?>
 <?php include '../include/database.php'; ?>
+<?php include '../app/include.php'; ?>
 <?php include '../include/header.php'; ?>
                 
 <h2>PROJECTS</h2>
@@ -16,8 +17,8 @@
 
     <?php
         $index = 1;
-        $result = $connection->query('SELECT `id`,`name`,`description` FROM `tm`.`tm_project`; ');
-        while($row = $result->fetch_object()) {
+        $projects = Application::getInstance()->getprojectService()->findAll();
+        foreach ($projects as $row) {
     ?>
     <tr>
         <td align="center"><?php echo $index; ?>.</td>

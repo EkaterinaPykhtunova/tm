@@ -2,15 +2,9 @@
 
 include '../../../config/settings.php';
 include '../../../include/database.php';
+include '../../../app/include.php';
 
-$name = 'New Task';
-$description = '';
-
-$stmt = mysqli_prepare($connection, "INSERT INTO `tm`.`tm_task` (`name`,`description`) 
-    VALUES (?,?); ");
-
-mysqli_stmt_bind_param($stmt, "ss", $name, $description);
-mysqli_stmt_execute($stmt);
+Application::getInstance()->gettaskService()->createOneByDefault();
 
 $result = new stdclass();
 $result->success = true;

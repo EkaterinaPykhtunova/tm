@@ -2,9 +2,9 @@
 
 include '../../../config/settings.php';
 include '../../../include/database.php';
+include '../../../app/include.php';
 
-$stmt = mysqli_prepare($connection, "DELETE FROM `tm`.`tm_task`");
-mysqli_stmt_execute($stmt);
+Application::getInstance()->gettaskService()->deleteAll();
 
 $result = new stdclass();
 $result->success = true;
