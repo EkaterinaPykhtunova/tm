@@ -14,7 +14,6 @@ class ProjectService {
     public function findOneById($id) {
         $connection = ConnectionUtill::getConnection();
         return $this->projectRepository->findOneById($connection,$id);
-
     }
 
     public function createOneByDefault() {

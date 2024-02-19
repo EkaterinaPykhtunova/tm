@@ -17,16 +17,10 @@ class ProjectRepository {
         }
 
         return $projects;
-
     }
 
     public function findOneById($connection, $id) {
-    
-        $stmt = mysqli_prepare(
-        $connection, 
-        "SELECT `name`,`description` FROM `tm`.`tm_project` WHERE id = ?; "
-    );
-    
+        $stmt = mysqli_prepare($connection, "SELECT `name`,`description` FROM `tm`.`tm_project` WHERE id = ?; ");
         mysqli_stmt_bind_param($stmt, "s", $id);
     
         $stmt->execute();
@@ -43,62 +37,44 @@ class ProjectRepository {
         $project->description = $description;
 
         return $project;
-}
+    }
 
     public function createOneByDefault($connection) {
-
         $name = 'New Project';
         $description = '';
-
-        $stmt = mysqli_prepare($connection, "INSERT INTO `tm`.`tm_project` (`name`,`description`) 
-        VALUES (?,?); ");
-
+        $stmt = mysqli_prepare($connection, "INSERT INTO `tm`.`tm_project` (`name`,`description`) VALUES (?,?); ");
         mysqli_stmt_bind_param($stmt, "ss", $name, $description);
         mysqli_stmt_execute($stmt);
-
     }
 
     public function createOneByName($connection, $name) {
         $description = '';
-        $stmt = mysqli_prepare($connection, "INSERT INTO `tm`.`tm_project` (`name`,`description`) 
-        VALUES (?,?); ");
+        $stmt = mysqli_prepare($connection, "INSERT INTO `tm`.`tm_project` (`name`,`description`) VALUES (?,?); ");
         mysqli_stmt_bind_param($stmt, "ss", $name, $description);
         mysqli_stmt_execute($stmt);
     }
 
     public function createOneByNameAndDescription($connection, $name, $description) {
-
-        $stmt = mysqli_prepare($connection, "INSERT INTO `tm`.`tm_project` (`name`,`description`) 
-        VALUES (?,?); ");
+        $stmt = mysqli_prepare($connection, "INSERT INTO `tm`.`tm_project` (`name`,`description`) VALUES (?,?); ");
         mysqli_stmt_bind_param($stmt, "ss", $name, $description);
         mysqli_stmt_execute($stmt);
     }
 
     public function updateOneById($connection, $id, $name, $description) {
-
-        $stmt = mysqli_prepare(
-            $connection, 
-            "UPDATE `tm`.`tm_project` SET `name` = ?, `description` = ? WHERE `id` = ? "
-        );
-        
+        $stmt = mysqli_prepare($connection, "UPDATE `tm`.`tm_project` SET `name` = ?, `description` = ? WHERE `id` = ? ");
         mysqli_stmt_bind_param($stmt, "sss", $name, $description, $id);
         mysqli_stmt_execute($stmt);
-
     }
 
     public function deleteOneById($connection, $id) {
-
         $stmt = mysqli_prepare($connection, "DELETE FROM `tm`.`tm_project` WHERE id = ? ");
         mysqli_stmt_bind_param($stmt, "s", $id);
         mysqli_stmt_execute($stmt);
-
     }
 
     public function deleteAll($connection) {
-
         $stmt = mysqli_prepare($connection, "DELETE FROM `tm`.`tm_project`");
         mysqli_stmt_execute($stmt);
-
     }
 
 }

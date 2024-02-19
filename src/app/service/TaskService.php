@@ -14,7 +14,6 @@ class TaskService {
     public function findOneById($id) {
         $connection = ConnectionUtill::getConnection();
         return $this->taskRepository->findOneById($connection,$id);
-
     }
 
     public function createOneByDefault() {
