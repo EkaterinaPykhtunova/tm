@@ -4,7 +4,7 @@ include '../../../config/settings.php';
 include '../../../include/database.php';
 include '../../../app/include.php';
 
-Application::getInstance()->getprojectService()->deleteAll();
+Application::getInstance()->getProjectService()->deleteAll();
 
 $result = new stdclass();
 $result->success = true;

@@ -14,9 +14,7 @@ if ((!isset($_GET) || empty($_GET['id'])) ) {
 }
 
 $id = $_GET['id'];
-
-$project = Application::getInstance()->getprojectService()->findOneById($id);
-
+$project = Application::getInstance()->getProjectService()->findOneById($id);
     if ($project == null) {
         $result = new stdclass();
         $result->success = false;

@@ -4,7 +4,7 @@ include '../../../config/settings.php';
 include '../../../include/database.php';
 include '../../../app/include.php';
 
-Application::getInstance()->gettaskService()->deleteAll();
+Application::getInstance()->getTaskService()->deleteAll();
 
 $result = new stdclass();
 $result->success = true;

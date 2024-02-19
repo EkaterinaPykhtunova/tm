@@ -37,8 +37,7 @@ if ((!isset($_POST) || empty($_POST['description'])) ) {
 $id = $_POST['id'];
 $name = $_POST['name'];
 $description = $_POST['description'];
-
-Application::getInstance()->gettaskService()->updateOneById($id, $name, $description);
+Application::getInstance()->getTaskService()->updateOneById($id, $name, $description);
 
 $result = new stdclass();
 $result->success = true;

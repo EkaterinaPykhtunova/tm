@@ -5,7 +5,6 @@ include '../../include/database.php';
 include '../../app/include.php';
 
 $id = $_POST['id'];
-
-Application::getInstance()->getprojectService()->deleteOneById($id);
+Application::getInstance()->getProjectService()->deleteOneById($id);
 
 header('location: /projects/');

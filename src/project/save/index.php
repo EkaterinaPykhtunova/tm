@@ -7,7 +7,6 @@ include '../../app/include.php';
 $id = $_POST['id'];
 $name = $_POST['name'];
 $description = $_POST['description'];
-
-Application::getInstance()->getprojectService()->updateOneById($id, $name, $description);
+Application::getInstance()->getProjectService()->updateOneById($id, $name, $description);
 
 header('location: /projects/');

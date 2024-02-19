@@ -15,8 +15,7 @@ if ((!isset($_POST) || empty($_POST['id'])) ) {
 }
 
 $id = $_POST['id'];
-
-Application::getInstance()->gettaskService()->deleteOneById($id);
+Application::getInstance()->getTaskService()->deleteOneById($id);
 
 $result = new stdclass();
 $result->success = true;

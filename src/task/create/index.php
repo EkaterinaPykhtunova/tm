@@ -4,6 +4,6 @@ include '../../config/settings.php';
 include '../../include/database.php';
 include '../../app/include.php';
 
-Application::getInstance()->gettaskService()->createOneByDefault();
+Application::getInstance()->getTaskService()->createOneByDefault();
 
 header('location: /tasks/');

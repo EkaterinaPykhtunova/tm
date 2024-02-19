@@ -14,9 +14,7 @@ if ((!isset($_GET) || empty($_GET['id'])) ) {
 }
 
 $id = $_GET['id'];
-
-$task = Application::getInstance()->gettaskService()->findOneById($id);
-    
+$task = Application::getInstance()->getTaskService()->findOneById($id);   
 if ($task == null) {
     $result = new stdclass();
     $result->success = false;

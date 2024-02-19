@@ -14,8 +14,7 @@ if (!isset($_POST) || empty($_POST['name'])) {
     die();
 }
 $name = $_POST['name'];
-
-Application::getInstance()->getprojectService()->createOneByName($name);
+Application::getInstance()->getProjectService()->createOneByName($name);
 
 $result = new stdclass();
 $result->success = true;

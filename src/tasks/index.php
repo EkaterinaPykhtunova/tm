@@ -17,7 +17,7 @@
 
     <?php
         $index = 1;
-        $tasks = Application::getInstance()->gettaskService()->findAll();
+        $tasks = Application::getInstance()->getTaskService()->findAll();
         foreach ($tasks as $row)  {
     ?>
     <tr>

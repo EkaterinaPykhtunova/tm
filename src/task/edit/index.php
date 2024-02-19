@@ -7,7 +7,7 @@
 <?php
 
  $id = $_GET['id'];
- $task = Application::getInstance()->gettaskService()->findOneById($id);
+ $task = Application::getInstance()->getTaskService()->findOneById($id);
 
  ?>
 

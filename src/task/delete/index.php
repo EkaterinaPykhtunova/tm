@@ -5,7 +5,6 @@ include '../../include/database.php';
 include '../../app/include.php';
 
 $id = $_POST['id'];
-
-Application::getInstance()->gettaskService()->deleteOneById($id);
+Application::getInstance()->getTaskService()->deleteOneById($id);
 
 header('location: /tasks/');

@@ -17,7 +17,7 @@
 
     <?php
         $index = 1;
-        $projects = Application::getInstance()->getprojectService()->findAll();
+        $projects = Application::getInstance()->getProjectService()->findAll();
         foreach ($projects as $row) {
     ?>
     <tr>
