@@ -4,8 +4,8 @@ class ProjectRepository {
 
     public function findAll($connection) {
 
-    $result = $connection->query('SELECT `id`,`name`,`description` FROM `tm`.`tm_project`; ');
-    $projects = array();
+        $result = $connection->query('SELECT `id`,`name`,`description` FROM `tm`.`tm_project`; ');
+        $projects = array();
 
         while($row = $result->fetch_object()) {
             $project = new Project();
