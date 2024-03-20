@@ -3,9 +3,8 @@
 class TaskRepository {
 
     public function findAll($connection) {
-
-    $result = $connection->query('SELECT `id`,`name`,`description` FROM `tm`.`tm_task`; ');
-    $tasks = array();
+        $result = $connection->query('SELECT `id`,`name`,`description` FROM `tm`.`tm_task`; ');
+        $tasks = array();
 
         while($row = $result->fetch_object()) {
             $task = new Task();

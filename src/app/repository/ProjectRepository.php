@@ -3,7 +3,6 @@
 class ProjectRepository {
 
     public function findAll($connection) {
-
         $result = $connection->query('SELECT `id`,`name`,`description` FROM `tm`.`tm_project`; ');
         $projects = array();
 
