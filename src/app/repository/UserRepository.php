@@ -2,10 +2,10 @@
 
 class UserRepository {
 
-    public function createOne($connection, $username, $passwordHash, $email) {
-        $stmt = mysqli_prepare($connection, "INSERT INTO `tm`.`tm_user` (`username`,`passwordHash`, `email`, `lastName`, `firstName`, `middleName`,`nickName`) VALUES (?,?,?,'','','',''); ");
+    public function createOne($connection, $username, $passwordHash, $email, $lastName = '', $firstName = '', $middleName = '', $nickName = '') {
+        $stmt = mysqli_prepare($connection, "INSERT INTO `tm`.`tm_user` (`username`,`passwordHash`, `email`, `lastName`, `firstName`, `middleName`,`nickName`) VALUES (?,?,?,?,?,?,?); ");
         
-        mysqli_stmt_bind_param($stmt, "sss", $username, $passwordHash, $email);
+        mysqli_stmt_bind_param($stmt, "sssssss", $username, $passwordHash, $email, $lastName, $firstName, $middleName, $nickName);
         mysqli_stmt_execute($stmt);
 
     }

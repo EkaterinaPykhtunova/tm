@@ -17,6 +17,12 @@ class UserService {
         $this->userRepository->createOne($connection, $username, $passwordHash, $email);
     }
 
+    public function registry($username, $password, $email, $lastName, $firstName, $middleName, $nickName) {
+        $passwordHash = PasswordUtil::hash($password);
+        $connection = ConnectionUtill::getConnection();
+        $this->userRepository->createOne($connection, $username, $passwordHash, $email, $lastName, $firstName, $middleName, $nickName);
+    }
+
     public function createUserRoot() {
         $this->createOne('root', 'root', 'root@tm');
 
