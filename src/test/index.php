@@ -6,7 +6,12 @@ TEST
 
 <?php
 
-    Application::getInstance()->getUserService()->createUserTest();
+    try {
+    Application::getInstance()->getProjectService()->createOneByName('');
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+    //Application::getInstance()->getUserService()->createUserTest();
     //echo json_encode(Application::getInstance()->getUserService()->findAll());
 
     //echo json_encode(Application::getInstance()->gettaskService()->findAll());

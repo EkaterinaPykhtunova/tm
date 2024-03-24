@@ -1,5 +1,7 @@
 <?php
 
+include __DIR__.'/exception/NameEmptyException.php';
+
 include __DIR__.'/model/Project.php';
 include __DIR__.'/model/Task.php';
 include __DIR__.'/model/User.php';

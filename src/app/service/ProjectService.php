@@ -12,6 +12,7 @@ class ProjectService {
     }
 
     public function findOneById($id) {
+        if (empty($id)) throw new IdEmptyException();
         $connection = ConnectionUtill::getConnection();
         return $this->projectRepository->findOneById($connection,$id);
     }
@@ -22,21 +23,28 @@ class ProjectService {
     }
 
     public function createOneByName($name) {
+        if (empty($name)) throw new NameEmptyException();
         $connection = ConnectionUtill::getConnection();
         $this->projectRepository->createOneByName($connection, $name);
     }
 
     public function createOneByNameAndDescription($name, $description) {
+        if (empty($name)) throw new NameEmptyException();
+        if (empty($description)) throw new DescriptionEmptyException();
         $connection = ConnectionUtill::getConnection();
         $this->projectRepository->createOneByNameAndDescription($connection, $name, $description);
     }
 
     public function updateOneById($id, $name, $description) {
+        if (empty($id)) throw new IdEmptyException();
+        if (empty($name)) throw new NameEmptyException();
+        if (empty($description)) throw new DescriptionEmptyException();
         $connection = ConnectionUtill::getConnection(); 
         $this->projectRepository->updateOneById($connection, $id, $name, $description);
     }
 
     public function deleteOneById($id) {
+        if (empty($id)) throw new IdEmptyException();
         $connection = ConnectionUtill::getConnection();
         $this->projectRepository->deleteOneById($connection, $id);
     }
