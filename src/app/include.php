@@ -4,6 +4,7 @@ include __DIR__.'/exception/EmailEmptyException.php';
 include __DIR__.'/exception/IdEmptyException.php';
 include __DIR__.'/exception/NameEmptyException.php';
 include __DIR__.'/exception/DescriptionEmptyException.php';
+include __DIR__.'/exception/PasswordEmptyException.php';
 include __DIR__.'/exception/LastNameEmptyException.php';
 include __DIR__.'/exception/FirstNameEmptyException.php';
 include __DIR__.'/exception/MiddleNameEmptyException.php';
