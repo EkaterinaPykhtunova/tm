@@ -60,6 +60,9 @@
                             <a href="/about">ABOUT</a>
                         </td>
                         <td>
+                            <a href="/login">LOGIN</a>
+                        </td>
+                        <td>
                             <a href="/registry">REGISTRY</a>
                         </td>
                     </tr>

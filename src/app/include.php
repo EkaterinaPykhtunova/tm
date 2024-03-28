@@ -1,5 +1,6 @@
 <?php
 
+include __DIR__.'/exception/AccessDeniedException.php';
 include __DIR__.'/exception/EmailEmptyException.php';
 include __DIR__.'/exception/IdEmptyException.php';
 include __DIR__.'/exception/NameEmptyException.php';

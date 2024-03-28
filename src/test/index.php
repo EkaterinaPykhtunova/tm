@@ -7,7 +7,9 @@ TEST
 <?php
 
     try {
-    Application::getInstance()->getProjectService()->createOneByName('');
+        Application::getInstance()->getUserService()->check('test','test');
+    //var_dump(Application::getInstance()->getUserService()->findOneByUsername('root'));  
+    //Application::getInstance()->getProjectService()->createOneByName('');
     } catch (Exception $e) {
         echo $e->getMessage();
     }

@@ -11,6 +11,17 @@ class UserService {
         $this->createUserTest();
     }
 
+    public function check($username, $password) {
+        if (empty($username)) throw new UsernameEmptyException();
+        if (empty($password)) throw new PasswordEmptyException();
+
+        $user = $this->FindOneByUsername($username);
+        if ($user == null) throw new AccessDeniedException();
+
+        $passwordHash = PasswordUtil::hash($password);
+        if ($user->passwordHash != $passwordHash) throw new AccessDeniedException();
+    }
+
     public function createOne($username, $password, $email) {
         if (empty($username)) throw new UsernameEmptyException();
         if (empty($password)) throw new PasswordEmptyException();
@@ -48,6 +59,12 @@ class UserService {
     public function findAll() {
         $connection = ConnectionUtill::getConnection();
         return $this->userRepository->findAll($connection);
+
+    }
+
+    public function findOneByUsername($username) {
+        $connection = ConnectionUtill::getConnection();
+        return $this->userRepository->findOneByUsername($connection, $username);
 
     }
 
