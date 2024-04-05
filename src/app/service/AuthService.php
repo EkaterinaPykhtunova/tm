@@ -14,6 +14,11 @@ class AuthService {
         return $result;
     }
 
+    public function getCurrentUser() {
+        $userId = Application::getInstance()->getSessionService()->getUserId();
+        return Application::getInstance()->getUserService()->findOneById($userId);
+    }
+
     public function isAuth() {
         return Application::getInstance()->getSessionService()->isAuth();
     }

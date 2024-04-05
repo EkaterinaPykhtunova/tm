@@ -66,4 +66,9 @@ class UserService {
         return $this->userRepository->findOneByUsername($connection, $username);
     }
 
+    public function findOneById($id) {
+        $connection = ConnectionUtill::getConnection();
+        return $this->userRepository->findOneById($connection, $id);  
+    }
+
 }
