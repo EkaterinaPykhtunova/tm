@@ -23,6 +23,8 @@ include __DIR__.'/repository/UserRepository.php';
 include __DIR__.'/service/ProjectService.php';
 include __DIR__.'/service/TaskService.php';
 include __DIR__.'/service/UserService.php';
+include __DIR__.'/service/AuthService.php';
+include __DIR__.'/service/SessionService.php';
 
 include __DIR__.'/utill/ConnectionUtill.php';
 include __DIR__.'/utill/PasswordUtil.php';

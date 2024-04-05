@@ -29,7 +29,6 @@
                 const errorBlock = document.getElementById('errorBlock');
                 errorBlock.style.display = 'none';
             }
-
         
         </script>
 
@@ -59,12 +58,25 @@
                         <td>
                             <a href="/about">ABOUT</a>
                         </td>
+
+                        <?php if (!Application::getInstance()->getAuthService()->isAuth());{ ?>
                         <td>
                             <a href="/login">LOGIN</a>
                         </td>
                         <td>
                             <a href="/registry">REGISTRY</a>
                         </td>
+                        <?php } ?>
+                        
+                        <?php if (Application::getInstance()->getAuthService()->isAuth());{ ?>
+                        <td>
+                            <a href="/profile">PROFILE</a>
+                        </td>
+                        <td>
+                            <a href="/logout">LOGOUT</a>
+                        </td>
+                        <?php } ?>
+                    
                     </tr>
                 </table>
                 

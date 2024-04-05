@@ -6,16 +6,8 @@ include '../../app/include.php';
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-$result = false;
 
-try {
-    Application::getInstance()->getUserService()->check($username,$password);
-    $result = true;
-} catch (Exception $e) {
-    $result = false;
-
-}
-
+$result = Application::getInstance()->getAuthService()->login($username, $password);
 
 if ($result) header('location: /profile');
 else header('location: /login');

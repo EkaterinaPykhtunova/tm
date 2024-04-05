@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 # SETTINGS MYSQL 
 define("MYSQL_HOST", "localhost");
 define("MYSQL_PORT", "3306");

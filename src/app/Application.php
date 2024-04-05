@@ -7,7 +7,9 @@ class Application {
     function __construct(
         public $projectService = new ProjectService(),
         public $taskService = new TaskService(),
-        public $userService = new UserService()
+        public $userService = new UserService(),
+        public $authService = new AuthService(),
+        public $sessionService = new SessionService()
     ) {}
 
     public static function getInstance() {
@@ -28,4 +30,13 @@ class Application {
     public function getUserService() {
         return $this->userService;
     }
+
+    public function getAuthService() {
+        return $this->authService;
+    }
+
+    public function getSessionService() {
+        return $this->sessionService;
+    }
+    
 }
