@@ -10,8 +10,7 @@ $result->success = false;
 try {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    Application::getInstance()->getAuthService()->login($username, $password);
-    $result->success = true;
+    $result->success = Application::getInstance()->getAuthService()->login($username, $password);
 } catch (Exception $e) {
     $result->success = false;
     $result->message = $e->getMessage();

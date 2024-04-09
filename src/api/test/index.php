@@ -1,6 +1,7 @@
 <?php define('TITLE', 'TEST API'); ?>
 <?php include '../../config/settings.php'; ?>
 <?php include '../../include/database.php'; ?>
+<?php include '../../app/include.php'; ?>
 <?php include '../../include/header.php'; ?>
 
 <h2>TEST API</h2>
@@ -279,6 +280,70 @@
         </td>
     </tr>
 
+</table>
+
+<table width="100%" border="1" cellpadding="10" style="margin-bottom: 20px;">
+   <tr>
+        <td colspan="3" align="center">
+            AUTH
+        </td>
+   </tr>
+   <tr>
+        <td align="left">
+            LOGIN
+        </td>
+        <td align="center">
+            POST
+        </td>
+        <td align="left">
+            <div>/api/auth/login/index.php</div>
+
+            <div>
+            <form method="POST" action="/api/auth/login/index.php" target="_blank">               
+                <div>USERNAME: <input name="username"></input></div>
+                <div>PASSWORD: <input name="password"></input></div>
+                <button type="submit">SEND</button>
+            </form>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td align="left">
+            LOGOUT
+        </td>
+        <td align="center">
+            POST
+        </td>
+        <td align="left">
+            <div>/api/auth/logout/index.php</div>
+
+            <div>
+            <form method="POST" action="/api/auth/logout/index.php" target="_blank">               
+                <button type="submit">SEND</button>
+            </form>
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td align="left">
+            PROFILE
+        </td>
+        <td align="center">
+            GET
+        </td>
+        <td align="left">
+            <div>/api/auth/profile/index.php</div>
+
+            <div>
+            <form method="GET" action="/api/auth/profile/index.php" target="_blank">               
+                <button type="submit">SEND</button>
+            </form>
+            </div>
+
+        </td>
+    </tr>
 </table>
 
 <?php include '../../include/footer.php'; ?>
