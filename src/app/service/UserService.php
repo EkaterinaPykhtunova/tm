@@ -71,4 +71,9 @@ class UserService {
         return $this->userRepository->findOneById($connection, $id);  
     }
 
+    public function updateOneById($id, $lastName, $firstName, $middleName, $nickName) {
+        $connection = ConnectionUtill::getConnection();
+        return $this->userRepository->updateOneById($connection, $id, $lastName, $firstName, $middleName, $nickName);
+    }
+
 }

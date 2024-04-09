@@ -120,16 +120,10 @@ class UserRepository {
 
     }
 
-    public function existsOneByUsername($connection, $username) {
-
-    }
-
-    public function existsOneByEmail($connection, $email) {
-
-    }
-
     public function updateOneById($connection, $id, $lastName, $firstName, $middleName, $nickName) {
-
+        $stmt = mysqli_prepare($connection, "UPDATE `tm`.`tm_user` SET `lastName` = ?, `firstName` = ?, `middleName` = ?, `nickName` = ? WHERE `id` = ? ");
+        mysqli_stmt_bind_param($stmt, "sssss", $lastName, $firstName, $middleName, $nickName, $id);
+        mysqli_stmt_execute($stmt);
     }
 
     public function deleteOneById($connection, $id) {
