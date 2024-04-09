@@ -1,6 +1,10 @@
 <?php define('TITLE', 'ABOUT'); ?>
-<?php include '../include/header.php'; ?>
-                
+<?php include './config/settings.php'; ?>
+<?php include './include/database.php'; ?>
+<?php include './app/include.php'; ?>
+<?php include './include/auth.php'; ?>
+<?php include './include/header.php'; ?>
+             
 <h2>ABOUT</h2>
 
 <h3>APPLICATION INFO</h3>
@@ -44,7 +48,5 @@
                             </td>
                         </tr>
                        </table>
-
-
 
 <?php include '../include/footer.php'; ?>

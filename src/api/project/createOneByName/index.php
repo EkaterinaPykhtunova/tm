@@ -3,6 +3,7 @@
 include '../../../config/settings.php';
 include '../../../include/database.php';
 include '../../../app/include.php';
+include '../../../include/auth-api.php';
 
 if (!isset($_POST) || empty($_POST['name'])) {
     $result = new stdclass();
@@ -13,6 +14,7 @@ if (!isset($_POST) || empty($_POST['name'])) {
     echo json_encode($result);
     die();
 }
+
 $name = $_POST['name'];
 Application::getInstance()->getProjectService()->createOneByName($name);
 

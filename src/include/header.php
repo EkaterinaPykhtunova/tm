@@ -59,7 +59,7 @@
                             <a href="/about">ABOUT</a>
                         </td>
 
-                        <?php if (!Application::getInstance()->getAuthService()->isAuth());{ ?>
+                        <?php if (!Application::getInstance()->getAuthService()->isAuth()) { ?>
                         <td>
                             <a href="/login">LOGIN</a>
                         </td>
@@ -68,7 +68,7 @@
                         </td>
                         <?php } ?>
                         
-                        <?php if (Application::getInstance()->getAuthService()->isAuth());{ ?>
+                        <?php if (Application::getInstance()->getAuthService()->isAuth()) { ?>
                         <td>
                             <a href="/profile">PROFILE</a>
                         </td>

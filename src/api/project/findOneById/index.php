@@ -3,6 +3,7 @@
 include '../../../config/settings.php';
 include '../../../include/database.php';
 include '../../../app/include.php';
+include '../../../include/auth-api.php';
 
 if ((!isset($_GET) || empty($_GET['id'])) ) {
     $result = new stdclass();
