@@ -75,5 +75,4 @@ class ProjectRepository {
         $stmt = mysqli_prepare($connection, "DELETE FROM `tm`.`tm_project`");
         mysqli_stmt_execute($stmt);
     }
-
 }

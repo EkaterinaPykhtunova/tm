@@ -53,5 +53,4 @@ class ProjectService {
         $connection = ConnectionUtill::getConnection();
         $this->projectRepository->deleteAll($connection);
     }
-
 }

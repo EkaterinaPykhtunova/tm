@@ -30,5 +30,4 @@ class AuthService {
     public function logout() {
         Application::getInstance()->getSessionService()->close();
     }
-
 } 

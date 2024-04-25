@@ -45,5 +45,4 @@ class TaskService {
         $connection = ConnectionUtill::getConnection();
         $this->taskRepository->deleteAll($connection);
     }
-
 }

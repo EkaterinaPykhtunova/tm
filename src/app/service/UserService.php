@@ -75,5 +75,4 @@ class UserService {
         $connection = ConnectionUtill::getConnection();
         return $this->userRepository->updateOneById($connection, $id, $lastName, $firstName, $middleName, $nickName);
     }
-
 }

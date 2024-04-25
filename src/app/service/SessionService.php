@@ -25,5 +25,4 @@ class SessionService {
     public function close() {
         session_destroy();
     }
-
 }

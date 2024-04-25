@@ -75,5 +75,4 @@ class TaskRepository {
         $stmt = mysqli_prepare($connection, "DELETE FROM `tm`.`tm_task`");
         mysqli_stmt_execute($stmt);
     }
-
 }

@@ -7,7 +7,6 @@ class UserRepository {
         
         mysqli_stmt_bind_param($stmt, "sssssss", $username, $passwordHash, $email, $lastName, $firstName, $middleName, $nickName);
         mysqli_stmt_execute($stmt);
-
     }
 
     public function findAll($connection) {
@@ -30,7 +29,6 @@ class UserRepository {
         }
 
         return $users;
-
     }
 
     public function findOneById($connection, $id) {
@@ -59,7 +57,6 @@ class UserRepository {
         $user->nickName = $nickName;
 
         return $user;
-
     }
 
     public function findOneByUsername($connection, $username) {
@@ -88,7 +85,6 @@ class UserRepository {
         $user->nickName = $nickName;
 
         return $user;
-
     }
 
     public function findOneByEmail($connection, $email) {
@@ -117,7 +113,6 @@ class UserRepository {
         $user->nickName = $nickName;
 
         return $user;
-
     }
 
     public function updateOneById($connection, $id, $lastName, $firstName, $middleName, $nickName) {
@@ -131,5 +126,4 @@ class UserRepository {
         mysqli_stmt_bind_param($stmt, "s", $id);
         mysqli_stmt_execute($stmt);
     }
-
 }
